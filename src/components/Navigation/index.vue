@@ -12,8 +12,8 @@ const Nav = computed(() => (isMobileTerminal.value ? MobileComp : PcComp))
 const categoryList = ref([])
 const getCategoryList = async () => {
   const res = await getCategory()
-  categoryList.value = res
-  console.log(res)
+  categoryList.value = res.categorys
+  console.log(res.categorys)
 }
 getCategoryList()
 </script>
