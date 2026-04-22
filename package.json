@@ -27,19 +27,22 @@
     "axios": "^1.15.0",
     "pinia": "^3.0.4",
     "tailwindcss": "^4.2.2",
+    "vite-plugin-svg-icons": "^2.0.1",
     "vue": "^3.5.32",
     "vue-router": "^5.0.4"
   },
   "devDependencies": {
-    "vite": "^8.0.8",
-    "@vitejs/plugin-vue": "^6.0.5",
-    "prettier": "^3.8.2",
-    "eslint": "^10.2.0",
     "@eslint/js": "^10.0.1",
-    "eslint-plugin-vue": "^10.8.0",
+    "@vitejs/plugin-vue": "^6.0.5",
+    "eslint": "^10.2.0",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.8.0",
+    "fast-glob": "^3.3.3",
     "globals": "^17.5.0",
     "husky": "^9.1.7",
-    "lint-staged": "^16.4.0"
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.2",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "vite": "^8.0.8"
   }
 }

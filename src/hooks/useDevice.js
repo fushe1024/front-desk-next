@@ -1,7 +1,7 @@
 import { useMediaQuery } from '@vueuse/core'
 import { computed } from 'vue'
 
-export function useDevice() {
+export const useDevice = () => {
   // 响应式媒体查询
   const isMobile = useMediaQuery('(max-width: 768px)')
   const isTablet = useMediaQuery('(min-width: 769px) and (max-width: 1024px)')

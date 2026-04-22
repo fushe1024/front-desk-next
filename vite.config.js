@@ -2,10 +2,18 @@ import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 import vue from '@vitejs/plugin-vue'
 import tailwindcss from '@tailwindcss/vite'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [vue(), tailwindcss()],
+  plugins: [
+    vue(),
+    tailwindcss(),
+    createSvgIconsPlugin({
+      iconDirs: [fileURLToPath(new URL('./src/assets/icons', import.meta.url))],
+      symbolId: 'icon-[name]' // 与组件中 #icon-${name} 对应
+    })
+  ],
   // 配置别名
   resolve: {
     alias: {

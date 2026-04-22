@@ -26,7 +26,7 @@ export default defineConfig([
 
   {
     rules: {
-      'no-var': 'off',
+      'no-var': 'error',
       'no-unused-vars': 'warn',
       'vue/multi-word-component-names': 'off'
     }

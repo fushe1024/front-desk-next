@@ -20,8 +20,15 @@ http.interceptors.request.use(
 // 响应拦截器
 http.interceptors.response.use(
   (response) => {
-    const { data } = response.data
-    return data
+    // 响应数据处理
+    const { data, message, success } = response.data
+
+    // 请求成功
+    if (success) {
+      return data
+    } else {
+      return Promise.reject(message)
+    }
   },
   (error) => {
     return Promise.reject(error)

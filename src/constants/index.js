@@ -12,3 +12,9 @@ export const STORAGE_KEY = {
   REFRESH_TOKEN_KEY: `${APP_PREFIX}:auth:refresh_token`, // 刷新令牌
   USER_INFO_KEY: `${APP_PREFIX}:user:info` // 用户信息
 }
+
+// Category 分类
+export const CATEGORY_All = {
+  id: 'all',
+  name: '全部'
+}

@@ -3,7 +3,7 @@ import Navigation from '@/components/Navigation/index.vue'
 </script>
 
 <template>
-  <header>搜索栏</header>
+  <header class="sticky top-0 left-0 h-6 bg-zinc-900">搜索栏</header>
   <Navigation />
   <div>list 区域</div>
   <div>totop</div>
