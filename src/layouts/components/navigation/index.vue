@@ -2,7 +2,7 @@
 import PcComp from './comp/pc.vue'
 import MobileComp from './comp/mobile.vue'
 import { isMobileTerminal } from '@/utils/device'
-import { computed, ref, onMounted } from 'vue'
+import { computed, ref } from 'vue'
 import { getCategory } from '@/api/category'
 import { CATEGORY_All } from '@/constants'
 
@@ -16,13 +16,16 @@ const getCategoryList = async () => {
   categoryList.value = [CATEGORY_All, ...res.categorys]
 }
 
-onMounted(() => {
-  getCategoryList()
-})
+// 处理分类点击事件
+const handleCategoryClick = (index) => {
+  console.log(index)
+}
+
+getCategoryList()
 </script>
 
 <template>
-  <component :is="Nav" :data="categoryList" />
+  <component :is="Nav" :data="categoryList" @child-click="handleCategoryClick" />
 </template>
 
 <style scoped></style>

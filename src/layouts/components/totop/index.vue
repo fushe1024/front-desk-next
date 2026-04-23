@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div>pc navigation</div>
+  <div>totop 组件</div>
 </template>
 
 <style scoped></style>

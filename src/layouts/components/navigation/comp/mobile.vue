@@ -8,6 +8,8 @@ const props = defineProps({
   }
 })
 
+const emit = defineEmits(['child-click'])
+
 const ulRef = ref(null)
 const activeIndex = ref(0)
 const itemRefs = ref([])
@@ -32,7 +34,7 @@ function updateSlider() {
   const ulRect = ul.getBoundingClientRect()
 
   // 获取元素在 ul 中的位置
-  const left = ul.scrollLeft + elRect.left - ulRect.left - 3.5
+  const left = ul.scrollLeft + elRect.left - ulRect.left
 
   // 设置滑块样式
   sliderStyle.value = {
@@ -78,14 +80,17 @@ onMounted(() => {
 })
 
 const isVisible = ref(false)
+
+// 处理弹层分类点击事件
+const changeItem = (index) => {
+  emit('child-click', index)
+  isVisible.value = false
+}
 </script>
 
 <template>
-  <div class="sticky top-0 z-10 bg-white">
-    <ul
-      ref="ulRef"
-      class="no-scrollbar relative flex overflow-x-auto px-1 py-2 text-xs text-zinc-600"
-    >
+  <div class="sticky top-0 z-10 bg-white p-2">
+    <ul ref="ulRef" class="no-scrollbar relative flex overflow-x-auto text-xs text-zinc-600">
       <!-- 滑块 -->
       <li
         class="absolute top-1/2 h-6 -translate-y-1/2 rounded-full bg-zinc-900 duration-200"
@@ -97,7 +102,7 @@ const isVisible = ref(false)
         v-for="(item, index) in data"
         :key="item.id"
         :ref="(el) => setItemRef(el, index)"
-        class="z-10 m-0.5 shrink-0 px-2.5 py-1.5 whitespace-nowrap duration-200 last:mr-8"
+        class="z-10 shrink-0 px-2.5 py-2 whitespace-nowrap duration-200 last:mr-8"
         :class="{ 'text-zinc-100': activeIndex === index }"
         @click="handleCategoryClick(index)"
       >
@@ -120,8 +125,9 @@ const isVisible = ref(false)
         <ul class="flex-1 overflow-y-auto">
           <li
             class="mx-1.5 rounded-sm py-2 text-lg text-zinc-900 active:bg-zinc-100"
-            v-for="item in data"
+            v-for="(item, index) in data"
             :key="item.id"
+            @click="changeItem(index)"
           >
             {{ item.name }}
           </li>
