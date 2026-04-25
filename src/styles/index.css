@@ -4,6 +4,12 @@
 @theme {
   /* 左侧渐隐阴影 */
   --shadow-l-white: -10px 0 10px white;
+
+  /* 头部高度 */
+  --height-header: 75px;
+
+  /* 主要内容区域高度 */
+  --height-main: calc(100dvh - var(--height-header));
 }
 
 /* 工具类 */

@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div>totop 组件</div>
+  <div>Tools</div>
 </template>
 
 <style scoped></style>

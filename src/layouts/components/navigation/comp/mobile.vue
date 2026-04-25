@@ -115,7 +115,7 @@ const changeItem = (index) => {
       class="shadow-l-white absolute top-1/2 right-0 z-20 flex h-8 w-8 -translate-y-1/2 items-center justify-center bg-white"
       @click="isVisible = true"
     >
-      <fn-svg-icon name="hamburger" size="16" className="duration-200 active:scale-90" />
+      <fn-svg-icon name="hamburger" size="16" class="duration-200 active:scale-90" />
     </div>
 
     <!-- 弹层组件 -->

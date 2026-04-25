@@ -8,7 +8,9 @@ import './styles/index.css'
 // core
 import store from './store'
 import router from './router'
-import autoComponents from './plugins/auto-components'
+
+// 导入 FnUI 组件库
+import FnUI from './fn-ui'
 
 // permission
 import { setupPermissionGuard } from './router/guards/permission'
@@ -24,10 +26,8 @@ const app = createApp(App)
 app.use(store)
 app.use(router)
 
-// 插件
-app.use(autoComponents, {
-  prefix: 'Fn'
-})
+// 安装 FnUI
+app.use(FnUI)
 
 // 守卫
 setupPermissionGuard()

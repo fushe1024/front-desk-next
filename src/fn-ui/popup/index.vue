@@ -3,6 +3,7 @@ import { computed, watch, onBeforeUnmount } from 'vue'
 import { useScrollLock } from '@vueuse/core'
 
 defineOptions({
+  name: 'Popup',
   inheritAttrs: false
 })
 
@@ -58,9 +59,9 @@ const handlePopstate = () => {
 // 位置
 const positionClass = computed(() => {
   const map = {
-    bottom: 'bottom-0 left-0 right-0 max-h-[80vh] rounded-t-2xl',
-    top: 'top-0 left-0 right-0 max-h-[80vh] rounded-b-2xl',
-    center: 'left-1/2 top-1/2 max-w-lg max-h-[80vh] -translate-x-1/2 -translate-y-1/2 rounded-2xl',
+    bottom: 'bottom-0 left-0 right-0 max-h-[80dvh] rounded-t-2xl',
+    top: 'top-0 left-0 right-0 max-h-[80dvh] rounded-b-2xl',
+    center: 'left-1/2 top-1/2 max-w-lg max-h-[80dvh] -translate-x-1/2 -translate-y-1/2 rounded-2xl',
     left: 'left-0 top-0 bottom-0 w-3/4 rounded-r-2xl',
     right: 'right-0 top-0 bottom-0 w-3/4 rounded-l-2xl'
   }

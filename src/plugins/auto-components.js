@@ -31,7 +31,7 @@ export default {
   install(app, options = {}) {
     const { prefix = '' } = options
     // 自动扫描组件
-    const modules = import.meta.glob('../libs/**/*.vue')
+    const modules = import.meta.glob('../components/**/*.vue')
 
     // 防止重复注册
     const registered = new Set()
