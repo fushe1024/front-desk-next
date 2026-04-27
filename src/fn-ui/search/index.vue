@@ -16,7 +16,7 @@ const props = defineProps({
   },
   clearable: {
     type: Boolean,
-    default: true
+    default: false
   },
   prefixFixed: {
     type: Boolean,
@@ -40,7 +40,7 @@ const inputValue = defineModel({
 const isPrefixFixed = computed(() => props.prefixFixed || inputValue.value.length === 0)
 
 // 是否显示清空按钮 - 当输入框有内容且 clearable 为 true 时显示
-const isShowClearButton = computed(() => props.showButton && inputValue.value.length > 0)
+const isShowClearButton = computed(() => props.clearable && inputValue.value.length > 0)
 
 // 清空输入框
 const onClear = () => {
@@ -50,6 +50,7 @@ const onClear = () => {
 
 // 输入框失去焦点
 const onBlur = (e) => {
+  isFocus.value = false
   emit('blur', e)
 }
 
@@ -79,15 +80,13 @@ const onKeydown = (e) => {
 </script>
 
 <template>
-  <div class="group relative rounded-xl bg-gray-100 p-1">
-    <!-- 搜索框 -->
+  <div class="group relative w-full rounded-xl bg-gray-100 p-1">
+    <!-- search -->
     <div
       class="flex h-10 items-center rounded-xl pl-4 duration-300 focus-within:bg-white hover:bg-white"
     >
-      <!--前缀图标 -->
       <svg-icon v-show="isPrefixFixed" name="search" size="20" class="mr-4" />
 
-      <!-- 搜索框 -->
       <input
         v-model="inputValue"
         type="text"
@@ -99,23 +98,21 @@ const onKeydown = (e) => {
         @keydown="onKeydown"
       />
 
-      <!-- 清空按钮 -->
       <div
         v-show="isShowClearButton"
-        class="mr-4 flex cursor-pointer items-center justify-center rounded-full bg-zinc-950 p-0.5 hover:bg-zinc-700"
+        class="mr-4 flex cursor-pointer items-center justify-center rounded-xl bg-zinc-950 p-0.5 hover:bg-zinc-700"
         @click="onClear"
       >
         <svg-icon name="close" size="14" class="fill-zinc-100" />
       </div>
 
-      <!-- 搜索按钮 -->
       <Button type="main" class="rounded-xl" active-anime @click="onSearch">
         <svg-icon name="search" size="16" class="fill-white" />
       </Button>
     </div>
 
-    <!-- 搜索结果 -->
-    <Transition name="slide-fade">
+    <!-- result -->
+    <transition name="slide-fade">
       <div
         v-if="slots.dropdown"
         v-show="isFocus"
@@ -123,7 +120,7 @@ const onKeydown = (e) => {
       >
         <slot name="dropdown"></slot>
       </div>
-    </Transition>
+    </transition>
   </div>
 </template>
 

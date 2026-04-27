@@ -67,7 +67,6 @@ const handleClick = (e) => {
 
     <SvgIcon v-else-if="icon" :name="icon" class="shrink-0" :size="iconSize" />
 
-    <!-- 这个 span 完全没问题 -->
     <span v-if="$slots.default" :class="{ 'ml-2': icon || loading }">
       <slot />
     </span>

@@ -115,17 +115,15 @@ onBeforeUnmount(() => {
 <template>
   <Teleport to="body">
     <div class="pointer-events-none fixed inset-0 z-50">
-      <!-- overlay -->
-      <Transition name="fade">
+      <transition name="fade">
         <div
           v-if="visible"
           class="pointer-events-auto absolute inset-0 bg-zinc-900/70"
           @click="handleOverlayClick"
         />
-      </Transition>
+      </transition>
 
-      <!-- popup -->
-      <Transition :name="transitionName">
+      <transition :name="transitionName">
         <div
           v-if="modelValue"
           class="pointer-events-auto absolute bg-white"
@@ -136,7 +134,7 @@ onBeforeUnmount(() => {
 
           <button v-if="showCloseButton" class="absolute top-2 right-3" @click="close">✕</button>
         </div>
-      </Transition>
+      </transition>
     </div>
   </Teleport>
 </template>

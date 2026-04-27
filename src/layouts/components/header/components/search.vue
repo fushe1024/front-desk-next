@@ -8,10 +8,10 @@ const search = () => {
 </script>
 
 <template>
-  <div class="mr-4 ml-8 w-full">
+  <div class="mr-4 ml-8 flex-1">
     <fn-search
       v-model="inputValue"
-      :clearable="false"
+      clearable
       placeholder="大家都在搜：JavaScript、Vue3、Vite3..."
       @search="search"
     >
