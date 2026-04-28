@@ -3,25 +3,32 @@
 
 /* 主题 */
 @theme {
-  /* 左侧渐隐阴影 */
   --shadow-l-white: -10px 0 10px white;
-
-  /* 头部高度 */
   --height-header: 75px;
-
-  /* 主要内容区域高度 */
   --height-main: calc(100dvh - var(--height-header));
+  --font-family-sans:
+    'Alibaba Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei',
+    'Hiragino Sans GB', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+/* 全局应用字体 */
+@layer base {
+  html {
+    font-family: var(--font-family-sans);
+    letter-spacing: 0.02em; /* 中文字距 */
+  }
 }
 
 /* 工具类 */
 @layer utilities {
   .no-scrollbar {
-    -ms-overflow-style: none; /* IE 和 Edge 浏览器 */
-    scrollbar-width: none; /* Firefox 浏览器 */
-    -webkit-overflow-scrolling: touch; /* iOS Safari */
+    -ms-overflow-style: none; /* IE 10+ Edge  */
+    scrollbar-width: none; /* Firefox */
+    -webkit-overflow-scrolling: touch; /* IOS Safari */
   }
 
   .no-scrollbar::-webkit-scrollbar {
-    display: none; /* 隐藏 Webkit 浏览器的滚动条 */
+    display: none; /* 隐藏滚动条 */
   }
 }

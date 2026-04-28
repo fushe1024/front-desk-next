@@ -2,7 +2,7 @@
 const menuData = [
   {
     id: 'profile',
-    label: '个人中心',
+    label: '个人设置',
     icon: 'profile',
     path: '/profile'
   },
@@ -22,9 +22,9 @@ const menuData = [
 </script>
 
 <template>
-  <fn-button v-if="false" type="primary" round class="ml-3 h-11"> 登录/注册 </fn-button>
+  <fn-button v-if="true" type="primary" round class="ml-3 h-11"> 登录/注册 </fn-button>
 
-  <fn-popover placement="bottom-end" width="150px">
+  <fn-popover v-else placement="bottom-end" width="150px">
     <template #reference>
       <div class="ml-3 flex h-11 cursor-pointer items-center">
         <div class="relative">
@@ -33,7 +33,7 @@ const menuData = [
           <fn-svg-icon name="vip" class="absolute -right-1 -bottom-1 h-4 w-4" />
         </div>
 
-        <fn-svg-icon name="down-arrow" class="ml-1 h-3 w-3" />
+        <fn-svg-icon name="down-arrow" class="ml-1 h-3 w-3 fill-zinc-900 dark:fill-zinc-300" />
       </div>
     </template>
 
@@ -45,7 +45,7 @@ const menuData = [
       >
         <fn-svg-icon :name="item.icon" size="16" class="mr-2 fill-zinc-900 dark:fill-zinc-300" />
 
-        <span class="text-sm text-zinc-800">{{ item.label }}</span>
+        <span class="text-sm">{{ item.label }}</span>
       </li>
     </ul>
   </fn-popover>

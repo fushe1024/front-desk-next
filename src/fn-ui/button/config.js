@@ -2,19 +2,16 @@
 export const typeEnum = {
   default:
     'border border-slate-200 text-slate-600 bg-white hover:bg-slate-200 active:bg-slate-50' +
-    ' dark:border-slate-700 dark:text-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 dark:active:bg-slate-800',
-
+    ' dark:border-zinc-700 dark:text-zinc-100 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:active:bg-zinc-900',
   primary:
     'text-white bg-zinc-900 hover:bg-zinc-700 active:bg-zinc-800' +
-    ' dark:bg-zinc-800 dark:hover:bg-zinc-600 dark:active:bg-zinc-700',
-
+    ' dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-800',
   info:
     'text-zinc-800 bg-zinc-200 hover:bg-zinc-300 active:bg-zinc-200' +
-    ' dark:text-zinc-100 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-700',
-
+    ' dark:text-zinc-100 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-800',
   main:
     'text-white bg-red-500 hover:bg-red-600 active:bg-red-500' +
-    ' dark:bg-red-600 dark:hover:bg-red-700 dark:active:bg-red-600'
+    ' dark:bg-red-600 dark:hover:bg-red-500 dark:active:bg-red-700'
 }
 
 // 按钮尺寸

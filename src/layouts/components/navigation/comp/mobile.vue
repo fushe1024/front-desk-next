@@ -89,11 +89,11 @@ const changeItem = (index) => {
 </script>
 
 <template>
-  <div class="sticky top-0 z-10 bg-white p-2">
+  <div class="sticky top-0 left-0 bg-white p-2 duration-500">
     <ul ref="ulRef" class="no-scrollbar relative flex overflow-x-auto text-xs text-zinc-600">
       <!-- 滑块 -->
       <li
-        class="absolute top-1/2 h-6 -translate-y-1/2 rounded-full bg-zinc-900 duration-200"
+        class="absolute top-1/2 h-6 -translate-y-1/2 rounded-full bg-zinc-900 transition-transform duration-200"
         :style="sliderStyle"
       />
 
@@ -102,8 +102,8 @@ const changeItem = (index) => {
         v-for="(item, index) in data"
         :key="item.id"
         :ref="(el) => setItemRef(el, index)"
-        class="z-10 shrink-0 px-2.5 py-2 whitespace-nowrap duration-200 last:mr-8"
-        :class="{ 'text-zinc-100': activeIndex === index }"
+        class="z-10 shrink-0 px-2.5 py-2 font-medium whitespace-nowrap duration-200 last:mr-8"
+        :class="[activeIndex === index ? 'text-zinc-100' : 'text-zinc-900']"
         @click="handleCategoryClick(index)"
       >
         {{ item.name }}

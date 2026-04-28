@@ -6,7 +6,9 @@ import User from './components/user.vue'
 </script>
 
 <template>
-  <header class="sticky top-0 left-0 flex w-full items-center justify-between bg-white px-6">
+  <header
+    class="sticky top-0 left-0 flex items-center justify-between bg-white px-6 dark:border-b dark:border-zinc-700 dark:bg-zinc-800"
+  >
     <logo />
     <search />
     <theme />

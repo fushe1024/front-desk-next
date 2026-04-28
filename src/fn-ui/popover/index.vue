@@ -173,15 +173,15 @@ onBeforeUnmount(() => {
 
     <transition name="fade">
       <div
-        v-if="visible"
+        v-show="visible"
         ref="popRef"
-        class="absolute z-50 overflow-hidden bg-white"
+        class="absolute z-50"
         :class="placementClass"
         @mouseenter="onPopEnter"
         @mouseleave="onPopLeave"
       >
         <div
-          class="rounded-xl border border-zinc-200 p-3 text-sm whitespace-nowrap transition-colors dark:border-zinc-700 dark:bg-zinc-900"
+          class="rounded-xl border border-zinc-200 bg-white p-3 text-sm whitespace-nowrap dark:border-zinc-700 dark:bg-zinc-900"
           :style="popStyle"
           v-bind="$attrs"
         >
