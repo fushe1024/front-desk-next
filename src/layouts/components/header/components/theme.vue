@@ -1,5 +1,9 @@
 <script setup>
 import { ThemeMode } from '@/enums'
+import { useAppStore } from '@/store'
+import { computed } from 'vue'
+
+const appStore = useAppStore()
 
 // 主题模式数据
 const themeModeData = [
@@ -20,17 +24,14 @@ const themeModeData = [
   }
 ]
 
+// 获取当前主题图标
+const themeIcon = computed(() => 'theme-' + appStore.themeMode)
+
 // 切换主题模式
-const handleThemeModeClick = (value) => {
-  // 设置暗黑/明亮模式
-  const html = document.documentElement
-  if (value) {
-    html.classList.add('dark')
-    html.classList.remove('light')
-  } else {
-    html.classList.add('light')
-    html.classList.remove('dark')
-  }
+const handleThemeModeClick = (mode) => {
+  if (mode === appStore.themeMode) return
+
+  appStore.setThemeMode(mode)
 }
 </script>
 
@@ -40,7 +41,7 @@ const handleThemeModeClick = (value) => {
       <div
         class="flex cursor-pointer items-center justify-center rounded-lg p-3 duration-200 hover:bg-gray-100 dark:hover:bg-zinc-900"
       >
-        <fn-svg-icon name="theme-light" size="20" class="fill-zinc-900 dark:fill-zinc-300" />
+        <fn-svg-icon :name="themeIcon" size="20" class="fill-zinc-900 dark:fill-zinc-300" />
       </div>
     </template>
 

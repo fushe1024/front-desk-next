@@ -1,6 +1,7 @@
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import { useCategoryStore } from './modules/category'
+import { useAppStore } from './modules/app'
 
 // 创建 store
 const store = createPinia()
@@ -14,5 +15,5 @@ export function setupStore(app) {
 }
 
 // 导出
-export { useCategoryStore }
+export { useCategoryStore, useAppStore }
 export default store

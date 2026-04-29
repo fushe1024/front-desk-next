@@ -49,12 +49,6 @@ function updateSlider() {
   // })
 }
 
-// 处理分类点击事件
-const handleCategoryClick = (index) => {
-  if (activeIndex.value === index) return
-  activeIndex.value = index
-}
-
 // 监听 activeIndex 变化，更新滑块位置
 watch(activeIndex, async () => {
   await nextTick()
@@ -81,9 +75,13 @@ onMounted(() => {
 
 const isVisible = ref(false)
 
-// 处理弹层分类点击事件
+// 分类点击事件
 const changeItem = (index) => {
+  if (activeIndex.value === index) return
+  activeIndex.value = index
   emit('child-click', index)
+
+  // 隐藏弹层
   isVisible.value = false
 }
 </script>
@@ -104,7 +102,7 @@ const changeItem = (index) => {
         :ref="(el) => setItemRef(el, index)"
         class="z-10 shrink-0 px-2.5 py-2 font-medium whitespace-nowrap duration-200 last:mr-8"
         :class="[activeIndex === index ? 'text-zinc-100' : 'text-zinc-900']"
-        @click="handleCategoryClick(index)"
+        @click="changeItem(index)"
       >
         {{ item.name }}
       </li>
