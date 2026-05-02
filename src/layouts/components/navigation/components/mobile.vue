@@ -23,7 +23,6 @@ const setItemRef = (el, index) => {
   if (el) itemRefs.value[index] = el
 }
 
-// 更新滑块位置和宽度
 function updateSlider() {
   const el = itemRefs.value[activeIndex.value]
   const ul = ulRef.value
@@ -33,29 +32,19 @@ function updateSlider() {
   const elRect = el.getBoundingClientRect()
   const ulRect = ul.getBoundingClientRect()
 
-  // 获取元素在 ul 中的位置
   const left = ul.scrollLeft + elRect.left - ulRect.left
 
-  // 设置滑块样式
   sliderStyle.value = {
     transform: `translateX(${left}px)`,
     width: elRect.width + 'px'
   }
-
-  // 滚动到可见区域
-  // el?.scrollIntoView({
-  //   behavior: 'smooth',
-  //   inline: 'center'
-  // })
 }
 
-// 监听 activeIndex 变化，更新滑块位置
 watch(activeIndex, async () => {
   await nextTick()
   updateSlider()
 })
 
-// 监听数据变化，重置 refs 和 activeIndex 并更新滑块位置
 watch(
   () => props.data,
   async () => {
@@ -67,7 +56,6 @@ watch(
   { immediate: true }
 )
 
-// 监听元素尺寸变化
 onMounted(() => {
   const resizeObserver = new ResizeObserver(updateSlider)
   resizeObserver.observe(document.documentElement)
@@ -75,23 +63,26 @@ onMounted(() => {
 
 const isVisible = ref(false)
 
-// 分类点击事件
 const changeItem = (index) => {
   if (activeIndex.value === index) return
   activeIndex.value = index
   emit('child-click', index)
-
-  // 隐藏弹层
   isVisible.value = false
 }
 </script>
 
 <template>
-  <div class="sticky top-0 left-0 bg-white p-2 duration-500">
-    <ul ref="ulRef" class="no-scrollbar relative flex overflow-x-auto text-xs text-zinc-600">
+  <!-- 顶部容器 -->
+  <div
+    class="sticky top-0 left-0 z-50 border-b border-transparent bg-white p-2 dark:border-zinc-800 dark:bg-zinc-900"
+  >
+    <ul
+      ref="ulRef"
+      class="no-scrollbar relative flex overflow-x-auto text-xs text-zinc-600 dark:text-zinc-400"
+    >
       <!-- 滑块 -->
       <li
-        class="absolute top-1/2 h-6 -translate-y-1/2 rounded-full bg-zinc-900 transition-transform duration-200"
+        class="absolute top-1/2 h-6 -translate-y-1/2 rounded-full bg-zinc-900 transition-all duration-200 dark:bg-zinc-100"
         :style="sliderStyle"
       />
 
@@ -100,31 +91,40 @@ const changeItem = (index) => {
         v-for="(item, index) in data"
         :key="item.id"
         :ref="(el) => setItemRef(el, index)"
-        class="z-10 shrink-0 px-2.5 py-2 font-medium whitespace-nowrap duration-200 last:mr-8"
-        :class="[activeIndex === index ? 'text-zinc-100' : 'text-zinc-900']"
+        class="z-10 shrink-0 cursor-pointer px-2.5 py-2 font-medium whitespace-nowrap transition-colors duration-200 last:mr-8"
+        :class="
+          activeIndex === index
+            ? 'text-zinc-100 dark:text-zinc-900'
+            : 'text-zinc-900 hover:text-zinc-700 dark:text-zinc-300 dark:hover:text-zinc-100'
+        "
         @click="changeItem(index)"
       >
         {{ item.name }}
       </li>
     </ul>
 
-    <!-- 弹层按钮 -->
+    <!-- 右侧按钮 -->
     <div
-      class="shadow-l-white absolute top-1/2 right-0 z-20 flex h-8 w-8 -translate-y-1/2 items-center justify-center bg-white"
+      class="shadow-l-white dark:shadow-l-black absolute top-1/2 right-0 z-20 flex h-full w-8 -translate-y-1/2 items-center justify-center bg-white dark:bg-zinc-950"
       @click="isVisible = true"
     >
-      <fn-svg-icon name="hamburger" size="16" class="duration-200 active:scale-90" />
+      <fn-svg-icon
+        name="hamburger"
+        :size="16"
+        class="fill-zinc-800 active:scale-90 dark:fill-zinc-200"
+      />
     </div>
 
-    <!-- 弹层组件 -->
+    <!-- 弹层 -->
     <fn-popup v-model="isVisible">
-      <div class="flex h-[80vh] flex-col p-2">
-        <h2 class="mx-1.5 mb-1.5 text-xl font-bold text-zinc-900">所有分类</h2>
+      <div class="flex h-[80vh] flex-col bg-white p-2 dark:bg-zinc-900">
+        <h2 class="mx-1.5 mb-1.5 text-xl font-bold text-zinc-900 dark:text-zinc-100">所有分类</h2>
+
         <ul class="flex-1 overflow-y-auto">
           <li
-            class="mx-1.5 rounded-sm py-2 text-lg text-zinc-900 active:bg-zinc-100"
             v-for="(item, index) in data"
             :key="item.id"
+            class="mx-1.5 rounded-md py-2 text-lg text-zinc-900 transition-colors duration-200 active:bg-zinc-100 dark:text-zinc-300 dark:active:bg-zinc-800"
             @click="changeItem(index)"
           >
             {{ item.name }}

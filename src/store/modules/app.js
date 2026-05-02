@@ -4,7 +4,7 @@ import { ThemeMode } from '@/enums'
 import { applyTheme, onSystemThemeChange } from '@/utils/theme'
 
 export const useAppStore = defineStore('app', () => {
-  const themeMode = ref(ThemeMode.SYSTEM)
+  const themeMode = ref(ThemeMode.LIGHT)
 
   const setThemeMode = (mode) => {
     themeMode.value = mode

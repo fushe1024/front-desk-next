@@ -4,9 +4,10 @@ import SvgIcon from './svg-icon'
 import Popup from './popup'
 import Popover from './popover'
 import Search from './search'
+import InfiniteList from './infinite-list'
 
 // 所有组件
-const components = [Button, SvgIcon, Popup, Popover, Search]
+const components = [Button, SvgIcon, Popup, Popover, Search, InfiniteList]
 
 // 工具函数：转 kebab-case
 function toKebabCase(str) {
@@ -39,4 +40,4 @@ export default {
 }
 
 // 支持按需引入
-export { Button, SvgIcon, Popup, Popover, Search }
+export { Button, SvgIcon, Popup, Popover, Search, InfiniteList }

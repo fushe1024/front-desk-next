@@ -41,7 +41,7 @@ const handleThemeModeClick = (mode) => {
       <div
         class="flex cursor-pointer items-center justify-center rounded-lg p-3 duration-200 hover:bg-gray-100 dark:hover:bg-zinc-900"
       >
-        <fn-svg-icon :name="themeIcon" size="20" class="fill-zinc-900 dark:fill-zinc-300" />
+        <fn-svg-icon :name="themeIcon" :size="20" class="fill-zinc-900 dark:fill-zinc-300" />
       </div>
     </template>
 
@@ -52,7 +52,7 @@ const handleThemeModeClick = (mode) => {
         :key="item.value"
         @click="handleThemeModeClick(item.value)"
       >
-        <fn-svg-icon :name="item.icon" size="16" class="mr-2 fill-zinc-900 dark:fill-zinc-300" />
+        <fn-svg-icon :name="item.icon" :size="16" class="mr-2 fill-zinc-900 dark:fill-zinc-300" />
 
         <span class="text-sm">{{ item.label }}</span>
       </li>

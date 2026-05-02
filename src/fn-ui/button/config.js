@@ -7,8 +7,8 @@ export const typeEnum = {
     'text-white bg-zinc-900 hover:bg-zinc-700 active:bg-zinc-800' +
     ' dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-800',
   info:
-    'text-zinc-800 bg-zinc-200 hover:bg-zinc-300 active:bg-zinc-200' +
-    ' dark:text-zinc-100 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-800',
+    'text-zinc-800 bg-zinc-200 hover:bg-zinc-300 active:bg-zinc-300/80' +
+    ' dark:text-zinc-100 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-600/80',
   main:
     'text-white bg-red-500 hover:bg-red-600 active:bg-red-500' +
     ' dark:bg-red-600 dark:hover:bg-red-500 dark:active:bg-red-700'

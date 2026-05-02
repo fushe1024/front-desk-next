@@ -30,10 +30,14 @@ const menuData = [
         <div class="relative">
           <img class="h-8 w-8 rounded-full" src="https://img1.ttxsapp.com/avatar/default/3.png" />
 
-          <fn-svg-icon name="vip" class="absolute -right-1 -bottom-1 h-4 w-4" />
+          <fn-svg-icon name="vip" :size="16" class="absolute -right-1 -bottom-1 h-4 w-4" />
         </div>
 
-        <fn-svg-icon name="down-arrow" class="ml-1 h-3 w-3 fill-zinc-900 dark:fill-zinc-300" />
+        <fn-svg-icon
+          name="down-arrow"
+          :size="16"
+          class="ml-1 h-3 w-3 fill-zinc-900 dark:fill-zinc-300"
+        />
       </div>
     </template>
 
@@ -43,7 +47,7 @@ const menuData = [
         v-for="item in menuData"
         :key="item.id"
       >
-        <fn-svg-icon :name="item.icon" size="16" class="mr-2 fill-zinc-900 dark:fill-zinc-300" />
+        <fn-svg-icon :name="item.icon" :size="16" class="mr-2 fill-zinc-900 dark:fill-zinc-300" />
 
         <span class="text-sm">{{ item.label }}</span>
       </li>

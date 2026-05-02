@@ -85,7 +85,7 @@ const onKeydown = (e) => {
     <div
       class="flex h-10 items-center rounded-xl pl-4 duration-300 focus-within:bg-white hover:bg-white dark:focus-within:bg-zinc-700 dark:hover:bg-zinc-700"
     >
-      <svg-icon v-show="isPrefixFixed" name="search" size="20" class="mr-4" />
+      <svg-icon v-show="isPrefixFixed" name="search" :size="20" class="mr-4" />
 
       <input
         v-model="inputValue"
@@ -103,11 +103,11 @@ const onKeydown = (e) => {
         class="mr-4 flex cursor-pointer items-center justify-center rounded-xl bg-zinc-950 p-0.5 hover:bg-zinc-700 dark:bg-zinc-700 dark:hover:bg-zinc-600"
         @click="onClear"
       >
-        <svg-icon name="close" size="14" class="fill-zinc-100 dark:fill-zinc-200" />
+        <svg-icon name="close" :size="14" class="fill-zinc-100 dark:fill-zinc-200" />
       </div>
 
       <Button type="main" class="rounded-xl" active-anime @click="onSearch">
-        <svg-icon name="search" size="16" class="fill-white" />
+        <svg-icon name="search" :size="16" class="fill-white" />
       </Button>
     </div>
 

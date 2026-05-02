@@ -1,6 +1,6 @@
 <script setup>
-import PcComp from './comp/pc.vue'
-import MobileComp from './comp/mobile.vue'
+import PcComp from './components/pc.vue'
+import MobileComp from './components/mobile.vue'
 import { isMobileTerminal } from '@/utils/device'
 import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
@@ -15,9 +15,7 @@ const { getCategoryList } = categoryStore
 const Nav = computed(() => (isMobileTerminal.value ? MobileComp : PcComp))
 
 // 处理分类点击事件
-const handleCategoryClick = (index) => {
-  console.log(index)
-}
+const handleCategoryClick = () => {}
 
 getCategoryList()
 </script>

@@ -52,14 +52,14 @@ const handleClick = (e) => {
     type="button"
     :disabled="isDisabled"
     @click="handleClick"
-    class="inline-flex cursor-pointer items-center justify-center font-semibold whitespace-nowrap transition-all duration-150 select-none"
+    class="flex cursor-pointer items-center justify-center font-semibold whitespace-nowrap transition-transform select-none"
     :class="[
       typeEnum[type],
       !circle && sizeEnum[size].button,
       round && 'rounded-full',
       circle ? [circleSize, 'rounded-full p-0'] : 'rounded',
       isDisabled && 'pointer-events-none cursor-not-allowed opacity-60',
-      activeAnime && !isDisabled && 'transition-transform duration-200 active:scale-95'
+      activeAnime && !isDisabled && 'duration-200 active:scale-95'
     ]"
     v-bind="$attrs"
   >

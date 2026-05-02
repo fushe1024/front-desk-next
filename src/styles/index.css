@@ -3,9 +3,11 @@
 
 /* 主题 */
 @theme {
-  --shadow-l-white: -10px 0 10px white;
   --height-header: 75px;
+  --height-navigation: 54px;
   --height-main: calc(100dvh - var(--height-header));
+  --shadow-l-white: -10px 0 10px white;
+  --shadow-l-black: -10px 0 10px rgba(0, 0, 0, 0.6);
   --font-family-sans:
     'Alibaba Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei',
     'Hiragino Sans GB', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji',

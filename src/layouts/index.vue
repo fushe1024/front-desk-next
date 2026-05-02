@@ -12,8 +12,8 @@ const Layout = computed(() => (isMobileTerminal.value ? MobileComp : PcComp))
 
 <template>
   <component :is="Layout">
-    <Navigation />
-    <List />
+    <navigation />
+    <list />
   </component>
 </template>
 

@@ -5,7 +5,7 @@ import Toolkit from '@/layouts/components/toolkit/index.vue'
 
 <template>
   <!-- pc 模式 -->
-  <header-vue class="h-header z-10" />
+  <header-vue class="h-header z-50" />
 
   <main class="h-main z-0 overflow-y-auto bg-white transition-colors duration-500 dark:bg-zinc-800">
     <slot />
